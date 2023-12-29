@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utility;
+use App\Models\Location\Shop;
 use App\Models\Product\Product;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product\ProductSkus;
@@ -55,8 +56,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-
-        return view('resources.product.create');
+        $shops = Shop::all();
+        return view('resources.product.create', compact('shops'));
         //
     }
 
@@ -69,10 +70,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->input());
+        //        dd($request->input());
         $request->validate([
             "name" => ["required", "unique:products,name"],
-            "price" => ["required", "numeric"]
+            "price" => ["required", "numeric"],
+            "shop_id" => ["required"]
         ]);
         $data = [];
         DB::beginTransaction();
