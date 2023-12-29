@@ -44,8 +44,7 @@ Route::middleware("auth")->group(function () {
         Route::resource('countries.regions.districts', DistrictController::class);
         Route::resource('countries.regions.districts.wards', WardController::class);
         Route::resource('countries.regions.districts.wards.streets', StreetController::class);
-
-        Route::resource('shop', ShopController::class);
+        Route::resource('shops', ShopController::class);
     });
     Route::prefix("/product")->name("product.")->group(function () {
         Route::resource('products', ProductController::class);

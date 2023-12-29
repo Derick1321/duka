@@ -39,7 +39,7 @@
                                                 <div class="">
                                                     <div class="mb-4">
                                                         <x-form.customer-input type="text" name="phone"
-                                                                               label="shop Phone" placeholder="Shop Phone"
+                                                                               label="Phone Number" placeholder="Phone Number"
                                                                                value="{{ isset($shop) ? $shop->phone : old('phone') }}" />
                                                     </div>
                                                 </div>
@@ -49,7 +49,7 @@
                                                 <div class="">
                                                     <div class="mb-4">
                                                         <x-form.customer-input type="text" name="email"
-                                                                               label="shop Email" placeholder="Shop Email"
+                                                                               label="Email Address" placeholder="Email Address"
                                                                                value="{{ isset($shop) ? $shop->email : old('email') }}" />
                                                     </div>
                                                 </div>
@@ -140,7 +140,7 @@
                                         </div>
 
                                         <div class="col-lg-6">
-                                            {{-- <div id="map" style="background-color: yellow; height: 100% width: 100%;"></div> --}}
+                                            <div id="map" style="background-color: rgb(119, 119, 104); height: 100% width: 100%;"></div>
                                             <x-form.coordinates-input
                                                     latitude="{{ isset($shop) ? $shop->latitude : old('latitude') }}"
                                                     longitude="{{ isset($shop) ? $shop->longitude : old('longitude') }}"
