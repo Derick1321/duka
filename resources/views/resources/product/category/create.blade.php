@@ -25,7 +25,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <x-form.customer-input type="text" name="name" label="Category Name"
-                                                value="{{ isset($productCategory) ? $productCategory->name : null }}" />
+                                                value="{{ isset($productCategory) ? $productCategory->name : Null }}" placeholder="Category Name" />
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="" class="label-control">Select Parent</label>
@@ -76,5 +76,5 @@
             </div><!-- end row -->
 
         </div>
-    </div>
+   
 </x-app-layout>
