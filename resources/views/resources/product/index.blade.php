@@ -7,13 +7,11 @@
 
 
                 <div class="card">
-                    <div class="card-header">
-                         <a href="{{ route('product.products.create') }}" class="btn btn-success">Add Product</a>
-                    </div>
+               
 
                     <div class="card-body">
 
-                        <h4 class="header-title">Product</h4>
+                        <h4 class="header-title">Product Categories</h4>
 
 
 

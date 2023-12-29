@@ -13,6 +13,7 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductOptionController;
 use App\Http\Controllers\Product\ProductSkusController;
 use App\Http\Controllers\Product\ProductSkuValueController;
+use App\Models\Location\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +35,7 @@ Route::middleware("auth")->name("api.")->group(function () {
         Route::resource('countries.regions.districts', DistrictController::class);
         Route::resource('countries.regions.districts.wards', WardController::class);
         Route::resource('countries.regions.districts.wards.streets', StreetController::class);
-        Route::resource('shop', ShopController::class);
+        Route::resource('shops', ShopController::class);
     });
     Route::prefix("/product")->name("product.")->group(function () {
         Route::resource('products', ProductController::class);
@@ -45,4 +46,11 @@ Route::middleware("auth")->name("api.")->group(function () {
         Route::post('productCategories/{productCategory}/product-category', AssignProductCategory::class)->name("assignProduct");
         Route::post('products/{product}/productOptions/{productOption}/product-Values', OptionValueAssignController::class)->name("assignValues");
     });
+});
+Route::name("api.")->group(function () {
+    Route::resource('countries', CountryController::class);
+    Route::resource('regions', RegionController::class);
+    Route::resource('wards', WardController::class);
+    Route::resource('streets', StreetController::class);
+    Route::resource('shops', ShopController::class);
 });
