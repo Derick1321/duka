@@ -28,6 +28,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
+Route::get('/product-details', function () {
+    return view('product-details');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
+
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
+Route::get('/shop', function () {
+    return view('shop');
+});
+
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

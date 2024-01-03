@@ -14,9 +14,7 @@
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="thead-light">
                                     <tr>
-                                        
-                                        
-                                        <th>Shop</th>
+                                       <th>Shop</th>
                                         <th>Phone</th>
                                         <th>Country</th>
                                         <th>Region</th>
@@ -28,15 +26,13 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($shops as $shop)
-                                        
-
-                                            
-                                            <td>{{ $shop->company_name }}</td>
+                                 
+                                            <td>{{ $shop->shop_name }}</td>
                                             <td>{{ $shop->phone ?? "NIL" }}</td>
                                             <td>{{ $shop->country?->name }}</td>
                                             <td>{{ $shop->region?->name }}</td>
                                             <td>{{ $shop->ward?->name }}</td>
-                                            <td>{{ $shop->street?->name }}</td>
+                                            <td>{{ $shop->street?->name }}</td> 
 
                                             <td id="tooltip-container0">
 
