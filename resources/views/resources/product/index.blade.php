@@ -77,21 +77,14 @@
                 <div class="card">
                     <div class="card-body">
                         <div>
-                            <a href="{{ route('product.products.create') }}" class="btn btn-success mb-2"><i
-                                    class="mdi mdi-plus me-2"></i> Add
+                            <a href="{{ route('product.products.create') }}" class="btn btn-success mb-2">
                                 product</a>
                         </div>
                         <div class="table-responsive mt-3">
-                            <table class="table table-centered datatable dt-responsive nowrap "
-                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <table class="table table-striped">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th style="width: 20px;">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="customercheck">
-                                                <label class="form-check-label" for="customercheck">&nbsp;</label>
-                                            </div>
-                                        </th>
+                                       
                                         <th>Name</th>
 
 
@@ -101,32 +94,23 @@
                                 <tbody>
                                     @foreach ($products as $product)
                                         <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customercheck1">
-                                                    <label class="form-check-label" for="customercheck1">&nbsp;</label>
-                                                </div>
-
+                                           
                                             <td>{{ $product->name }}</td>
 
 
                                             <td id="tooltip-container0">
                                                 <div class="btn-group" role="group">
                                                     <a href="{{ route('product.products.edit', ['product' => $product->id]) }}"
-                                                        class="me-3 text-primary" data-bs-container="#tooltip-container0"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i
-                                                            class="mdi mdi-pencil font-size-18"></i></a>
+                                                        class="text-primary">Edit</a>
 
                                                     <a href="{{ route('product.products.show', ['product' => $product->id]) }}"
-                                                        class="me-3 text-primary" title="Show"><i
-                                                            class="mdi mdi-eye-plus font-size-18"></i></a>
+                                                        class="text-secondary" >Show</a>
                                                     <form
                                                         action="{{ route('product.products.destroy', ['product' => $product->id]) }}"
                                                         method="post">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="me-3 btn btn-outline-danger"><i
-                                                                class="mdi mdi-trash-can font-size-18"></i></button>
+                                                        <button type="submit" class="me-3 btn btn-outline-danger">Delete</button>
 
                                                     </form>
 
