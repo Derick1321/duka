@@ -15,7 +15,7 @@
                                 <thead class="thead-light">
                                     <tr>
                                         
-                                        <th>Organization</th>
+                                        
                                         <th>Shop</th>
                                         <th>Phone</th>
                                         <th>Country</th>
@@ -30,7 +30,7 @@
                                     @foreach ($shops as $shop)
                                         
 
-                                            <td>{{ $shop->organization->name }}</td>
+                                            
                                             <td>{{ $shop->company_name }}</td>
                                             <td>{{ $shop->phone ?? "NIL" }}</td>
                                             <td>{{ $shop->country?->name }}</td>

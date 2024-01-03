@@ -117,7 +117,7 @@ class ShopController extends Controller
 
 
         //
-        return redirect(route("location.shop.index"));
+        return redirect(route("location.shops.index"));
     }
 
     /**

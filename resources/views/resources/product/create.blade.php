@@ -6,24 +6,16 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-
-                            <div id="addproduct-nav-pills-wizard" class="twitter-bs-wizard">
-                                <ul class="twitter-bs-wizard-nav">
-                                    <li class="nav-item">
-                                        <a href="#basic-info" class="nav-link" data-toggle="tab">
-                                            <span class="step-number">01. Basic Info</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#product-img" class="nav-link" data-toggle="tab">
-                                            <span class="step-number">02. Product Img</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- ebd ul -->
-                                <div class="tab-content twitter-bs-wizard-tab-content">
-                                    <div class="tab-pane" id="basic-info">
-                                        @isset($product)
+                            <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Product Details</button>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Product Images</button>
+    
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    @isset($product)
                                             <form action="{{ route('product.products.update', ['product' => $product]) }}"
                                                 method="POST" enctype="multipart/form-data">
                                                 @method('patch')
@@ -43,7 +35,7 @@
                                                         <option
                                                         value="{{ old('shop_id') ?? isset($shop->id) ? $shop->id : '' }}"
                                                         {{ isset($shop) && $shop->id != $shop->shop_id ? 'selected' : null }}>
-                                                        {{ $shop->name }}
+                                                        {{ $shop->shop_name }}
                                                           </option>
                                                           @endforeach
                                                          </select>
@@ -81,14 +73,11 @@
                                                 </div>
 
 
-                                                <ul class="pager wizard twitter-bs-wizard-pager-link">
-                                                    <li class="next"><a href="#"> Product Img <i
-                                                                class="mdi mdi-arrow-right ms-1"></i></a></li>
-                                                </ul>
-                                    </div>
-                                    <!-- end tabpane -->
-                                    <div class="tab-pane" id="product-img">
-                                        <h4 class="header-title">Product Images</h4>
+                                                
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+       
                                         <p class="card-title-desc">Upload product image</p>
 
                                         <div class="fallback">
@@ -97,19 +86,18 @@
 
 
 
-                                        <ul class="pager wizard twitter-bs-wizard-pager-link">
-                                            <li class="previous"><a href="#"><i class="mdi mdi-arrow-left me-1"></i>
-                                                    Basic Info</a></li>
-                                            <li class="float-end"><button class="btn btn-outline-success"
+                                        <div class="p-2">
+                                            
+                                            <div class="float-end"><button class="btn btn-outline-success"
                                                     type="submit">Save Changes <i
-                                                        class="mdi mdi-arrow-right ms-1"></i></button></li>
-                                        </ul>
-                                    </div>
+                                                        class="mdi mdi-arrow-right ms-1"></i></button></div>
+                                        </div>
                                     </form>
+  </div>
+ 
+</div>
 
-                                    <!-- end tabpane -->
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>

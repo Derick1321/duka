@@ -20,12 +20,12 @@ class Product extends Model
     }
     public function caterogry()
     {
-        return $this->belongsToMany(ProductCategory::class, 'products_have_categories', 'product_id', 'category_id');
+        return $this->belongsToMany(ProductCategory::class, 'product_have_categories', 'product_id', 'category_id');
     }
 
     public function categories()
     {
-        return $this->belongsToMany(ProductCategory::class, 'products_have_categories', 'product_id', 'category_id');
+        return $this->belongsToMany(ProductCategory::class, 'product_have_categories', 'product_id', 'category_id');
     }
 
     public function skus()
