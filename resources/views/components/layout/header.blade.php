@@ -42,7 +42,7 @@
                                 <div class="ovic-menu-wrapper ovic-menu-wrapper-2">
                                     <ul>
                                     @auth
-                                        <li><a href="{{ url('/home') }}">Home</a></li>
+                                        <li><a href="{{ url('/dashboard') }}">Home</a></li>
                                     @else    
                                         <li><a href="{{ route('login') }}">Login</a></li>
                                     @if (Route::has('register'))    
@@ -99,7 +99,7 @@
                         <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
                             <div class="header-action">
                                 <div class="block-userlink">
-                                    <a class="icon-link icon-link-2" href="my-account.html">
+                                    <a class="icon-link icon-link-2" href="{{ route('login') }}">
                                     <i class="flaticon-user"></i>
                                     <span class="text">
                                     <span class="sub">Login </span>
@@ -362,7 +362,7 @@
                             <nav>
                                 <ul>
                                     <li><a href="/">Home</a></li>
-                                    <li><a href="#">Shop</a></li>
+                                    <li><a href="/shop">Shop</a></li>
                                     <li><a href="#">About Us</a></li>
                                 </ul>
                             </nav>
@@ -390,7 +390,7 @@
             <div class="offcanvas__content">
                 <div class="offcanvas__logo mb-40">
                     <a href="/">
-                    <img src="asset/img/logo/logo-white.png" alt="logo">
+                    <img src="{{ asset('web/img/logo/logo-mini.png')}}" alt="logo">
                     </a>
                 </div>
                 <div class="offcanvas__search mb-25">

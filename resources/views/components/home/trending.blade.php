@@ -59,9 +59,9 @@
                                 </div>
                             </div>
                             <div class="product__add-cart text-center">
-                                <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                                </button>
+                                                    <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                   <a href="/cart" >Add to Cart</a>
+                                                    </button>
                             </div>
                         </div>
                     </div>
@@ -105,9 +105,9 @@
                                 </div>
                             </div>
                             <div class="product__add-cart text-center">
-                                <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                                </button>
+                                                    <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                   <a href="/cart" >Add to Cart</a>
+                                                    </button>
                             </div>
                         </div>
                     </div>
@@ -154,9 +154,9 @@
                                 </div>
                             </div>
                             <div class="product__add-cart text-center">
-                                <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                                </button>
+                                                    <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                   <a href="/cart" >Add to Cart</a>
+                                                    </button>
                             </div>
                         </div>
                     </div>
@@ -200,9 +200,9 @@
                                 </div>
                             </div>
                             <div class="product__add-cart text-center">
-                                <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                                </button>
+                                                    <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                   <a href="/cart" >Add to Cart</a>
+                                                    </button>
                             </div>
                         </div>
                     </div>
@@ -246,9 +246,9 @@
                                 </div>
                             </div>
                             <div class="product__add-cart text-center">
-                                <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                                </button>
+                                                    <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                   <a href="/cart" >Add to Cart</a>
+                                                    </button>
                             </div>
                         </div>
                     </div>
@@ -292,9 +292,9 @@
                                 </div>
                             </div>
                             <div class="product__add-cart text-center">
-                                <button type="button" class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                Add to Cart
-                                </button>
+                                                    <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                   <a href="/cart" >Add to Cart</a>
+                                                    </button>
                             </div>
                         </div>
                     </div>

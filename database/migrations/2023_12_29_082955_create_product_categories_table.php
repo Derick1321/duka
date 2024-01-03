@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('featured_image')->nullable();
             $table->string('parent_id')->nullable();
             $table->text('description')->nullable();
-            $table->softDeletes();
+            $table->softDeletes();  
             $table->timestamps();
         });
     }

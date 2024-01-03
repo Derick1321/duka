@@ -41,6 +41,10 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
+Route::get('/shop', function () {
+    return view('shop');
+});
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
