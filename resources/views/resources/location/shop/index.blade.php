@@ -10,17 +10,16 @@
                                 shop</a>
                         </div>
                         <div class="table-responsive mt-3">
-                            <table class="table table-striped"
-                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <table class="table table-striped">
                                 <thead class="thead-light">
                                     <tr>
                                        <th>Shop</th>
                                         <th>Phone</th>
                                         <th>Country</th>
                                         <th>Region</th>
+                                        <th>District</th>
                                         <th>Ward</th>
-                                        <td>Street</td>
-
+                                        <th>Street</th>
                                         <th style="width: 120px;">Action</th>
                                     </tr>
                                 </thead>
@@ -31,6 +30,7 @@
                                             <td>{{ $shop->phone ?? "NIL" }}</td>
                                             <td>{{ $shop->country?->name }}</td>
                                             <td>{{ $shop->region?->name }}</td>
+                                            <td>{{$shop->district?->name}}</td>
                                             <td>{{ $shop->ward?->name }}</td>
                                             <td>{{ $shop->street?->name }}</td> 
 
@@ -39,8 +39,7 @@
                                                 <div class="btn-group">
 
                                                     <a href="{{ route('location.shops.edit', ['shop' => $shop]) }}"
-                                                        class="btn btn-outline-primary" title="Edit"><i
-                                                            class="mdi mdi-pencil"></i></a>
+                                                        class="btn btn-outline-primary" title="Edit"> Edit</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -103,7 +103,7 @@
                                                             class="form-control  @error('ward_id') is-invalid @enderror">
                                                             <option value="" x-text="fetchWards.isLoading ? 'Fetching...' : 'Choose...'"></option>
                                                             <template
-                                                                x-for="ward in wards.filter(u => form.district_id ? form.district_id == u.district_id : true)">
+                                                                x-for="ward in wards.filter(u => form.district_id ? form.district_id == u.district_id :true)">
                                                                 <option x-bind:value="ward.id" x-text="ward.name"
                                                                     x-bind:selected="ward.id == form.ward_id"></option>
                                                             </template>
@@ -166,16 +166,13 @@
                 </div>
             </div>
         </div>
-</x-app-layout>
-
-
-    <script>
-        const initialForm = {
-            country_id: "",
-            region_id: "",
-            district_id: "",
-            ward_id: "",
-            street_id: ""
+          <script>
+        function initializeMap(latitude, longitude, zoom) {
+            const latLng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: latLng,
+                zoom: parseFloat(zoom),
+            });
         }
 
         function getState() {
@@ -185,68 +182,62 @@
                 regions: [],
                 districts: [],
                 wards: [],
-                form: initialForm,
+                form: {
+                    country_id: "",
+                    region_id: "",
+                    district_id: "",
+                    ward_id: "",
+                    street_id: ""
+                },
                 streets: [],
-                item: {},
                 fetchWards: { isLoading: false },
                 fetchStreets: { isLoading: false },
-                initialize(countries, regions, districts, wards, streets, item) {
+                initialize(countries, regions, districts, wards, streets, shop) {
                     this.countries = countries;
                     this.regions = regions;
                     this.districts = districts;
                     this.wards = wards;
                     this.streets = streets;
-                    this.item = item ?? {}
+                    this.form = {
+                        country_id: shop ? shop.country.id : "",
+                        region_id: shop ? shop.region.id : "",
+                        district_id: shop ? shop.district.id : "",
+                        ward_id: shop ? shop.ward.id : "",
+                        street_id: shop ? shop.street.id : ""
+                    };
 
-                    if (item) {
-                        this.form.country_id = item.country.id;
-                        this.form.region_id = item.region.id
-                        this.form.district_id = item.district.id
-                        this.form.ward_id = item.ward.id;
-                        this.form.street_id = item.street.id;
-
-                        if (this.form.district_id) {
-                            this.fetchWardsQuery(this.form.district_id);
-                        }
-
-                        if (this.form.ward_id) {
-                            this.fetchStreetsQuery(this.form.ward_id);
-                        }
+                    if (shop && this.form.district_id) {
+                        this.fetchWardsQuery(this.form.district_id);
                     }
 
-                    this.$watch('form.district_id', (val) => {
-                        this.fetchWardsQuery(val);
-                    });
-
-                    this.$watch('form.ward_id', (val) => {
-                        this.fetchWardsQuery(val);
-                    });
+                    if (shop && this.form.ward_id) {
+                        this.fetchStreetsQuery(this.form.ward_id);
+                    }
                 },
                 initMap() {
-                    console.log("Initialize Map inside alpine js called");
+                    initializeMap(this.form.latitude, this.form.longitude, this.form.zoom);
                 },
-                fetchWardsQuery(ward_id) {
+                fetchWardsQuery(district_id) {
                     this.fetchWards.isLoading = true;
-                    fetchWards(ward_id).then(res => {
+                    fetchWards(district_id).then(res => {
                         this.fetchWards.isLoading = false;
-                        this.wards = res.data
+                        this.wards = res.data;
                     }).catch(error => this.fetchWards.isLoading = false);
                 },
-                fetchStreetsQuery(street_id) {
+                fetchStreetsQuery(ward_id) {
                     this.fetchStreets.isLoading = true;
-                    fetchStreets(street_id).then(res => {
+                    fetchStreets(ward_id).then(res => {
                         this.fetchStreets.isLoading = false;
-                        this.streets = res.data
+                        this.streets = res.data;
                     }).catch(error => this.fetchStreets.isLoading = false);
                 },
-
-            }
+            };
         }
 
         async function fetchWards(district_id) {
-            let url = new URL("{{ route("api.wards.index") }}");
+            const url = new URL("{{ route("api.wards.index") }}");
             url.searchParams.append("district_id", district_id);
-            let res = await fetch(url.href, {
+            const res = await fetch(url.href, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -257,9 +248,9 @@
         }
 
         async function fetchStreets(ward_id) {
-            let url = new URL("{{ route("api.streets.index") }}");
+            const url = new URL("{{ route("api.streets.index") }}");
             url.searchParams.append("ward_id", ward_id);
-            let res = await fetch(url.href, {
+            const res = await fetch(url.href, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -269,14 +260,12 @@
             return res.json();
         }
 
-        // function initMap() {
-        //     const event = new Event('google-maps-loaded', {"bubbles": true, "composed":true});
-        //     document.dispatchEvent(event);
-
-        //     // const latLng = { lat: latitude, lng: longitude };
-        //     // map = new google.maps.Map(document.getElementById("map"), {
-        //     //     center: latLng,
-        //     //     zoom: zoom,
-        //     // });
-        // }
+        // Trigger the initMap function when Google Maps is loaded
+        document.addEventListener('google-maps-loaded', () => {
+            getState().initMap();
+        });
     </script>
+</x-app-layout>
+
+
+    

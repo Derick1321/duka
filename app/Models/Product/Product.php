@@ -18,10 +18,10 @@ class Product extends Model
     {
         return $this->belongsTo(Shop::class, 'shop_id');
     }
-    public function caterogry()
-    {
-        return $this->belongsToMany(ProductCategory::class, 'product_have_categories', 'product_id', 'category_id');
-    }
+    // public function caterogry()
+    // {
+    //     return $this->belongsToMany(ProductCategory::class, 'product_have_categories', 'product_id', 'category_id');
+    // }
 
     public function categories()
     {

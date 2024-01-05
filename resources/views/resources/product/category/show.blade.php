@@ -33,8 +33,9 @@
                                                 <td>{{ $product->name }}</td>
                                                 <td>
                                                     <div class="form-check mb-3">
+                                                        {{-- {{ $product->category->contains('product_id', $product->id) ? 'checked' : '' }} --}}
                                                         <input class="form-check-input" value="{{ $product->id }}"
-                                                            name="product_id[]" {{-- {{ $product->category->contains('name', $product->name) ? ' checked' : '' }} --}} type="checkbox"
+                                                            name="product_id[]"  type="checkbox"
                                                             id="formCheck1">
                                                     </div>
                                                 </td>

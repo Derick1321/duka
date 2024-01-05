@@ -77,8 +77,9 @@ class ShopController extends Controller
         $countries = Country::all();
         $regions = Region::all();
         $districts = District::all();
-        $wards = [];
-        $streets = [];
+
+        $wards = Ward::all();
+        $streets = Street::all();
         return view("resources.location.shop.create", compact('countries', 'regions', 'districts', 'wards', 'streets'));
         //
     }
